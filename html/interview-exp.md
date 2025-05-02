@@ -1,0 +1,12 @@
+- Meta tag and its usage
+- Event Lop
+- Different ways to implement Responsive design
+- CSS Box sizing, Box Modal, Flex, Grid
+- SCSS vs CSS
+- Vue vs React
+- Server Side Rendering
+- How to create Web component for using across various frameworks
+- Shadow DOM
+- Ways to improve SEO
+- Implement Closure
+- Implement memoized function Implement own filter Array polyfill Implement Currying Infinite
