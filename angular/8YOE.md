@@ -336,3 +336,110 @@ This repository contains **advanced Angular interview questions** designed for d
 These advanced Angular interview questions are designed to test the depth of knowledge and experience of a senior Angular developer with **8+ years** of experience. Topics cover **architecture**, **performance optimization**, **RxJS**, **state management**, **testing**, and **security** practices. Prepare to demonstrate both your technical knowledge and real-world experience with Angular.
 
 ---
+
+
+Certainly! Here are some advanced Angular interview questions tailored for a Lead Developer with 8+ years of experience. These questions cover various aspects of Angular, including architecture, performance optimization, testing, and best practices:
+
+### 1. **Change Detection Strategy**
+
+* **Question:** Explain the difference between the `Default` and `OnPush` change detection strategies. How does Angular determine when to check for changes when `OnPush` is used?
+* **Follow-up:** In what situations would you recommend using `OnPush`? How would you handle complex forms or UI components that require frequent updates when using `OnPush`?
+
+### 2. **Zone.js and Performance Optimization**
+
+* **Question:** How does Angular’s change detection mechanism rely on Zone.js? Can you describe how Zone.js helps in detecting asynchronous operations like HTTP requests or setTimeout calls?
+* **Follow-up:** What performance considerations should be kept in mind when working with Zone.js? How can you optimize Angular's performance in highly interactive applications with multiple asynchronous tasks?
+
+### 3. **Lazy Loading and Preloading Strategies**
+
+* **Question:** Explain the concept of lazy loading in Angular and the various preloading strategies (`PreloadAllModules`, `NoPreloading`, `CustomPreloadingStrategy`). How would you implement a custom preloading strategy and when might it be useful?
+* **Follow-up:** How would you ensure the efficient loading of large Angular applications and minimize the initial bundle size?
+
+### 4. **NgRx (or State Management)**
+
+* **Question:** What are the benefits of using NgRx for state management in Angular? Can you describe the architecture of an NgRx store and how the different pieces (actions, reducers, selectors) fit together?
+* **Follow-up:** How would you implement a feature that fetches data asynchronously using NgRx, and how would you handle error states, retries, or loading states effectively?
+
+### 5. **Angular Compiler and Ahead of Time Compilation (AOT)**
+
+* **Question:** Can you explain the difference between Just-in-Time (JIT) and Ahead-of-Time (AOT) compilation in Angular? How do these two affect the application’s performance and deployment?
+* **Follow-up:** In what situations would you use AOT vs. JIT? How would you go about debugging issues that only appear in AOT mode?
+
+### 6. **Custom Directives and Pipes**
+
+* **Question:** Can you explain the use cases for creating custom structural and attribute directives? What are the key differences between `ngOnInit` and `ngOnChanges` within the lifecycle of a directive?
+* **Follow-up:** How would you implement a custom pipe, and how would you handle performance issues related to pipes that involve heavy computations?
+
+### 7. **RxJS and Observables**
+
+* **Question:** How does Angular use RxJS to handle asynchronous programming? Can you explain the role of Observables in Angular’s HttpClient and FormControl API?
+* **Follow-up:** Can you walk us through how you would implement a complex RxJS-based workflow with operators like `switchMap`, `mergeMap`, `combineLatest`, and `debounceTime` in a real-world feature?
+
+### 8. **Angular Dependency Injection (DI) and Hierarchical Injectors**
+
+* **Question:** Explain how Angular’s Dependency Injection system works and the concept of hierarchical injectors. Can you describe how the injector tree works and how different injectors (root vs. lazy-loaded module) behave?
+* **Follow-up:** How would you handle scenarios where you need to override a service or provide different configurations for different modules?
+
+### 9. **Angular Modules and Lazy-Loading**
+
+* **Question:** How do you structure Angular applications using multiple feature modules? How does Angular’s module system help with scalability, and how would you manage the inter-dependencies between modules?
+* **Follow-up:** When implementing lazy-loaded modules, how would you structure them to ensure maintainability and performance?
+
+### 10. **Security in Angular**
+
+* **Question:** What are some of the best practices for ensuring security in Angular applications? How does Angular’s built-in security features (like sanitization, DOM-based security) help protect against XSS and CSRF?
+* **Follow-up:** What steps would you take to secure data from API calls? How would you implement user authentication and authorization in Angular using JWT tokens?
+
+### 11. **Angular Universal (SSR)**
+
+* **Question:** Can you explain what Angular Universal is and how server-side rendering (SSR) works in Angular? What are the advantages of using Angular Universal for SEO and performance optimization?
+* **Follow-up:** How would you implement Angular Universal in a production environment? What are some challenges you would face when implementing SSR, and how can they be overcome?
+
+### 12. **Unit Testing and E2E Testing**
+
+* **Question:** How would you approach unit testing Angular components, services, and directives? What are the key differences between unit tests and integration tests in Angular?
+* **Follow-up:** How would you handle testing for asynchronous code or side effects in Angular? Can you discuss your approach to E2E testing with tools like Protractor or Cypress?
+
+### 13. **Performance Optimization Techniques**
+
+* **Question:** What are some advanced techniques for optimizing Angular application performance, both in terms of bundle size and runtime performance?
+* **Follow-up:** How would you use tools like Angular CLI, Webpack, and Lighthouse to analyze and optimize the performance of an Angular app?
+
+### 14. **Progressive Web Apps (PWA) in Angular**
+
+* **Question:** What is a Progressive Web App (PWA), and how does Angular support PWA features? How would you enable offline capabilities, caching strategies, and push notifications in an Angular app?
+* **Follow-up:** What challenges would you face when making an Angular app a PWA, and how would you address them?
+
+### 15. **Angular Update Strategies and Breaking Changes**
+
+* **Question:** Angular frequently releases updates. How would you handle the process of upgrading a large Angular application to a new major version? How would you deal with breaking changes and ensure minimal downtime?
+* **Follow-up:** Can you share any experience dealing with deprecated APIs or removing legacy features during the upgrade process?
+
+### 16. **Web Workers and Performance in Angular**
+
+* **Question:** How can Angular applications utilize Web Workers for performance optimization? Can you explain how to create and manage a Web Worker in an Angular application?
+* **Follow-up:** How would you manage communication between the main thread and Web Workers, and what performance benefits can be expected in a real-world scenario?
+
+### 17. **Internationalization (i18n)**
+
+* **Question:** How would you implement internationalization (i18n) in an Angular application? Can you walk us through the process of preparing an Angular app for multilingual support and handling dynamic language switching?
+* **Follow-up:** What are the challenges in handling translations, formatting, and date/time in a globalized Angular application, and how would you solve them?
+
+### 18. **Custom Webpack Configuration**
+
+* **Question:** Have you ever customized the Angular build process using Webpack? Can you explain how you would extend or modify the Webpack configuration for advanced use cases, such as adding custom loaders or plugins?
+* **Follow-up:** What challenges can arise when customizing Webpack in an Angular project, and how can you mitigate those?
+
+### 19. **Stateful vs Stateless Components**
+
+* **Question:** How do you differentiate between stateful and stateless components in Angular? What are the advantages of using stateless components, and how do they fit into Angular’s component architecture?
+* **Follow-up:** How would you design a complex UI in Angular while maintaining a clear separation of concerns between state management, presentation logic, and data handling?
+
+### 20. **Module Federation with Angular**
+
+* **Question:** What is Module Federation, and how can it be used to improve scalability in Angular applications? How would you configure Angular to use Webpack Module Federation for building micro-frontends?
+* **Follow-up:** Can you discuss the potential challenges of using Module Federation with Angular, especially in terms of shared dependencies and version conflicts?
+
+---
+
+These questions are meant to probe both deep technical expertise and experience in architecting large-scale, high-performance Angular applications. A Lead Developer with over 8 years of experience should be able to confidently discuss the intricacies of Angular and provide practical solutions based on years of experience.
