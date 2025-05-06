@@ -269,3 +269,89 @@ for(let i=0;i<10;i++){
 }
 setTimeout(() => console.log(count), 600); // should print 1
 ```
+
+# Confiz
+## Explain the output of the below code
+```js
+const person = {
+  name: "Alice",
+  greet: function() {
+  // alice
+    setTimeout(function() {
+    // window / undefined if in strict mode
+      console.log("Hi, I'm " + this.name); // This actually printed Hi, I'm Result. I was confused too but jsfiddle set the window.name to "Result" :D
+    }, 1000);
+  }
+};
+person.greet();
+```
+## Create a deep copy of an object.
+```js
+function deepClone(val){
+    const res = {};
+    for(let key in val) {
+    if(val.hasOwnProperty(key)) {
+      if(typeof val[key] === "object"){
+        res[key] = deepClone(val[key]);
+      } else {
+      res[key] = val[key];
+      }
+    }
+  }
+  return res;
+  }
+  
+  const original = { a: 1, b: { c: 2 } };
+  const copy = deepClone(original);
+  console.log(copy);
+  
+  copy.b.c = 42;
+  console.log(original.b.c); // 2 (original unchanged  
+  console.log(copy)
+```
+
+## Convert an array to tree level order. 
+```js
+/*
+// Input
+const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+//expected output; 
+{
+  value: 1,
+  left: {
+    value: 2,
+    left: { value: 4, left: 8, right: 9 },
+    right: { value: 5, left: 10, right: null }
+  },
+  right: {
+    value: 3,
+    left: { value: 6, left: null, right: null },
+    right: { value: 7, left: null, right: null }
+  }
+}
+*/
+function TreeNode(val) {
+	this.val = val;
+  this.left = null;
+  this.right = null;
+}
+function createTree(arr) {
+  const root = new TreeNode(arr[0]);
+  let queue = [{ ref: root, key: "left"}, {ref: root, key: "right"}];
+  for(let i=1;i<arr.length;i++) {
+  	const {ref, key} = queue.shift();
+    const child = new TreeNode(arr[i]);
+    ref[key] = child;
+    queue.push({ref: child, key: "left"});
+    queue.push({ref: child, key: "right"});
+  }
+  
+  console.log(JSON.stringify(root))
+  
+  return root;
+}
+ const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+createTree(arr);
+
+```
+
