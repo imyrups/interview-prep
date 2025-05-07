@@ -70,7 +70,7 @@
 
 ---
 
-Designing **Role-Based Access Control (RBAC)** in a **React** application involves managing user permissions based on their assigned roles. Here's a guide to implement it cleanly:
+## Designing `Role-Based Access Control (RBAC)` in a `React` application involves managing user permissions based on their assigned roles. Here's a guide to implement it cleanly:
 
 ---
 
