@@ -1,6 +1,6 @@
 ## Table Of content
-[Key Areas to Focus](#key-areas-of-focus)
-[Techno manegerial](#technomanagerial)
+1. [Key Areas to Focus](#key-areas-of-focus)
+3. [Techno manegerial](#TechnoMangerial)
 
 ## ✅ **Key Areas of Focus**
 
