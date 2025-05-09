@@ -370,6 +370,63 @@ For an **L3 React Lead** role in a multinational corporation (MNC), the intervie
 * **Why:** This checks the candidate's ability to plan a sprint while considering both immediate goals and long-term technical health.
 * **Follow-up:** How do you ensure the team adheres to the sprint goals while balancing the need for code quality?
 
+Absolutely — let's take these **techno-managerial questions** one by one, and I’ll walk you through each with a **detailed explanation and example** for better understanding. We'll start with the **first one**:
+
+---
+
+## ✅ **1. How do you approach sprint planning when working with a cross-functional team? How do you balance technical debt with new feature development?**
+
+### 🔍 **Why this question matters:**
+
+This tests your **ability to lead the team** through the planning phase of the agile cycle while managing trade-offs. As a React Lead, you're expected to balance product expectations, frontend development velocity, and architectural soundness.
+
+---
+
+### 🎯 **What to Cover in Your Answer:**
+
+1. **Stakeholder Alignment:**
+
+   * Start by syncing with Product Owners to understand business priorities.
+   * Confirm scope and align expectations.
+
+2. **Technical Assessment:**
+
+   * Review codebase to check areas that need refactoring or contain technical debt.
+   * Discuss with developers to surface pain points that should be addressed.
+
+3. **Task Breakdown:**
+
+   * Divide features into manageable stories and tasks.
+   * Identify dependencies (e.g., backend APIs) and parallelizable work.
+
+4. **Effort Estimation:**
+
+   * Use story points or time-based estimates, with the team’s input.
+
+5. **Debt vs Features:**
+
+   * Propose a fixed timebox in each sprint (e.g., 15–20%) for tech debt.
+   * Prioritize high-impact debt or blockers that slow down development.
+
+6. **Final Plan & Communication:**
+
+   * Present the sprint plan in a planning meeting.
+   * Set achievable goals and ensure the team commits to the right amount of work.
+
+---
+
+### 📘 **Example Answer:**
+
+> "In my last project at a fintech MNC, our cross-functional team included React devs, backend devs, QA, and a product owner. During sprint planning, we first reviewed the business goals with the PO and selected the top priorities from the backlog.
+>
+> We then did a technical grooming session where developers flagged two areas with legacy code causing UI performance issues. I proposed we allocate 20% of the sprint for refactoring those parts while still delivering two high-priority features.
+>
+> We used story points to estimate tasks, discussed risks (e.g., incomplete APIs from backend), and adjusted the scope accordingly. By doing this, we avoided burnout, tackled long-standing technical debt, and still met sprint goals. I also ensured this balance was documented and shared in the sprint review to maintain transparency with stakeholders."
+
+---
+
+
+
 **Q2: When breaking down a large feature into smaller tasks for the sprint, how do you handle dependencies between tasks within the same sprint or across sprints?**
 
 * **Why:** This tests the candidate's ability to break down large problems and manage interdependencies.
