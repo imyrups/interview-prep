@@ -195,6 +195,70 @@ debouncedSearch();
 
 setTimeout(() => debouncedSearch(), 1000);
 ```
+### guess the output
+```js
+class Site {
+  name = "BFE";
+  getHandle() {
+    return {
+      name: "bigfrontend",
+      getName1() {
+        return this.name;
+      },
+      getName2: () => {
+        return this.name;
+      },
+      getName3: function () {
+        return this.name;
+      },
+    };
+  }
+}
+
+const site = new Site();
+alert(site.getHandle().getName1()); // window.name
+alert(site.getHandle().getName2()); // BFE
+alert(site.getHandle().getName3()); // bigfrontend
+```
+```js
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+}
+
+let displayName = function () {
+  if (this && this.age) {
+    alert(`my name is ${this.name} & my age is ${this.age}.`);
+  } else {
+    alert("error");
+  }
+};
+
+let obj1 = new Person("A", 31);
+let obj2 = new Person("B", 21);
+let obj3 = new Person("C", 11);
+let obj4 = new Person("D", 1);
+
+displayName(obj1); // error
+Person.prototype.displayName = displayName;
+
+displayName(obj2); // error
+displayName(obj4); // error
+displayName.call(obj3, obj4); // C, 11
+```
+```js
+const person = { name: "Lydia", age: 21 };
+const changeAge = (x = { ...person }) => (x.age += 1);
+const changeAgeAndName = (x = { ...person }) => {
+  x.age += 1;
+  x.name = "Sarah";
+};
+
+changeAge(person);
+changeAgeAndName();
+
+console.log(person); // Lydia, 22
+```
 
 ## Implement flatten method
 ```js
@@ -211,7 +275,22 @@ const flatten = (arr) => {
 
 console.log(flatten([1,[2,[3,4]]]));
 ```
+### Maximise profit for stock price given in array
+```js
+function getMaxProfit(prices) {
+  let max = 0, l=0,r=1;
+  while(r<prices.length) {
+    if(prices[r] < prices[l]) {l=r;}
+    max = Math.max(max, prices[r]-prices[l]);
+    r++;
+  }
+  
+  return max;
+}
 
+console.log(getMaxProfit([7,1,5,3,6,4]));
+console.log(getMaxProfit([7,6,4,13,1]));
+```
 
 
 # Micro1 AI
