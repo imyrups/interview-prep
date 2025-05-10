@@ -216,7 +216,7 @@ class Site {
 }
 
 const site = new Site();
-alert(site.getHandle().getName1()); // window.name
+alert(site.getHandle().getName1()); // bigfrontend (I asnwered window.name which was wrong)
 alert(site.getHandle().getName2()); // BFE
 alert(site.getHandle().getName3()); // bigfrontend
 ```
@@ -289,7 +289,7 @@ function getMaxProfit(prices) {
 }
 
 console.log(getMaxProfit([7,1,5,3,6,4]));
-console.log(getMaxProfit([7,6,4,13,1]));
+console.log(getMaxProfit([7,6,4,3,1]));
 ```
 
 
