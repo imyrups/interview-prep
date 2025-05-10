@@ -80,6 +80,14 @@ class useState1 {
 }
 
 ```
+## Design an app where we need the filter compo based on (source, assets, tags), implemented in real time
+### How do you store and process millions of records on UI
+### How do you batch rendering as the data coming from web scoets every 100ms
+### How do you handle error failure cases in your socket
+### If you reconnect to socket , how do you handle duplication issue
+### is there no way on UI to handle a million records
+### how would virtualisation work if we have blocks with variable lengths, say description is of 1 line in one vs 4 line in other?
+
 
 # GlobalLogic
 - What are some of the most used hooks in react
