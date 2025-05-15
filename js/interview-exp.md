@@ -434,3 +434,48 @@ createTree(arr);
 
 ```
 
+# Arrise Solutions
+##  promise chanining, we need to log 1 to 10, each after 2 sec gap?
+```js
+const p1 = createPromise(0);
+let ref = p1.then(handlePromise);
+for(let i=1;i<10;i++) {
+  ref = ref.then(handlePromise);
+}
+
+
+function createPromise(val) {
+  return new Promise((success) => {
+    setTimeout(() => {
+      success(val+1);
+    }, 2000)
+  });
+}
+
+function handlePromise(val) {
+    console.log(val);
+    return val < 11 ? createPromise(val): null
+}
+```
+## Write a function which finds all the pairs which sums upto the target.
+```js
+const findAllPairs = (arr, target) => {
+	const res = [];
+  let l = 0, r=arr.length - 1;
+  while(l<r) {
+  const sum = arr[l]+arr[r];
+  	if(sum === target) {
+    	res.push([arr[l], arr[r]])
+      l++;
+      r--;
+    } else if(sum < target) {
+    	l++;
+    } else {
+    r--;
+    }
+ 	}
+ 	return res;
+ }
+
+console.log(findAllPairs([1,2,3,4,5,6,7,8,9], 9));
+```
