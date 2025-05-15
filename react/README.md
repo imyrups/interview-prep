@@ -10,3 +10,4 @@
 # References
 - https://www.youtube.com/@Codevolution
 - https://www.frontendjoy.com/p/17-tips-from-a-senior-react-developer
+- https://bionicjulia.com/blog/debugging-performance-issues-in-react
