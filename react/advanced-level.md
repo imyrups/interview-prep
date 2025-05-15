@@ -924,7 +924,23 @@ But then you’ll need to make sure not to use ES modules inside the worker.
 
 ---
 
+## How to fix React performance issues?
+This will clearly be dependent on what you actually find during your debugging exercise, but typical culprits will be:
 
+- Unnecessary component re-renders
+- Slow API calls
+- Large, suboptimal image sizes
+- Large JavaScript files
+- Memory leaks
+
+Some ways of improving the performance of your React app might include:
+- Using React.memo (React PureComponent), useMemo and useCallback hooks to minimise component re-renders. Read my in-depth blog posts on React.memo and React.useMemo for more info.
+- Minimising function calls (especially network requests) by using debounce or throttle, and batching network calls when possible.
+- Reducing JavaScript bundle sizes. Do you need all the libraries you’ve installed? Can you use code splitting to make script loading more efficient?
+    - Related to this point is lazy loading your images, JavaScript and Redux stores only at the point in time when the user needs it.
+    - With images, try to use the optimal image size required for the screen sizes you’re targeting.
+- Minimising memory leaks, by making sure you clean up your event handlers, timeouts and intervals when components unmount.
+    - Use the “Memory” tab in Chrome Devtools to filter for “detached” objects to identify these.
 
 
 
