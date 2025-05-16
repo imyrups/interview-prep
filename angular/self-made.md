@@ -55,6 +55,23 @@ This repository contains a collection of **Angular interview questions** categor
 
 7. **What is RxJS and how is it used in Angular?**
    - RxJS (Reactive Extensions for JavaScript) is a library for reactive programming using Observables. Angular leverages RxJS for asynchronous operations like HTTP requests, user input events, etc. Operators like `map`, `mergeMap`, `switchMap`, etc., are commonly used for handling streams of data.
+  
+8. **How to write custom validators for reactive as well as template driven forms?**
+9. **How to implement custom validation for control dependent on other controls like confirm pass depends on pass?**
+```ts
+function passwordsMatchValidator(group: AbstractControl): ValidationErrors | null {
+  const pass = group.get('password')?.value;
+  const confirm = group.get('confirmPassword')?.value;
+  return pass === confirm ? null : { passwordsMismatch: true };
+}
+
+this.form = fb.group({
+  password: ['', Validators.required],
+  confirmPassword: ['']
+}, { validators: passwordsMatchValidator });
+```
+
+11. 
 
 ---
 
@@ -90,6 +107,12 @@ This repository contains a collection of **Angular interview questions** categor
 
 8. **What are Angular Guards and how are they used?**
    - Guards are used to protect routes and control navigation. Types include `CanActivate`, `CanActivateChild`, `CanLoad`, and `CanDeactivate`. Guards can prevent access to certain routes based on conditions like user authentication.
+
+9. **what are decorators, how to write one of our own?**
+10. **how the dynamic component injections works w.r.t factries?**
+11. **explain techniques to runsomething outside of angular's zone?**
+12. **explain the phenomenin of detaching and reattaching change detectors in angular?**
+13. 
 
 ---
 
