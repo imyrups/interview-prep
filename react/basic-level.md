@@ -48,7 +48,7 @@ The virtual DOM is a lightweight copy of the actual DOM in memory. React maintai
 
 Find Deep dive [here](https://medium.com/@arpitparekh54/understanding-the-react-component-lifecycle-a-deep-dive-into-the-life-of-a-react-component-74813cb8dfb5)
 
-![lefecycle visualisation](https://miro.medium.com/v2/resize:fit:1100/format:webp/1*U-pXh1j7GhUo1fE9Tz6dAQ.png)
+![lifecycle visualisation](https://miro.medium.com/v2/resize:fit:1100/format:webp/1*U-pXh1j7GhUo1fE9Tz6dAQ.png)
 
 
 ## List the 7 prominent hooks by react?
