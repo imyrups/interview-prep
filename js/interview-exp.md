@@ -145,7 +145,53 @@ No They cannot be bound by a diff this
 ## What are web workers, somehow can you move the processing on to a web worker or service worker?
 I told Web worker can help in this, service worker have all togetehr a diff usecase
 
-- 
+## R4 - How can I say that any app is responsive?
+## How do we get window width of any device?
+To get the width of any device (i.e., the viewport width) in JavaScript, you can use the `window.innerWidth` property.
+
+### Example:
+
+```javascript
+const deviceWidth = window.innerWidth;
+console.log("Device width:", deviceWidth);
+```
+
+### Explanation:
+
+* `window.innerWidth` returns the **interior width** of the window in pixels, including scrollbars (if rendered).
+
+---
+
+### Additional Options
+
+#### 1. **Using `document.documentElement.clientWidth`**:
+
+```javascript
+const width = document.documentElement.clientWidth;
+```
+
+* Returns the viewport width **excluding scrollbars**.
+* More consistent across older browsers than `window.innerWidth`.
+
+#### 2. **Using CSS Media Queries (in JS)**:
+
+If you want to react to screen width changes:
+
+```javascript
+const mediaQuery = window.matchMedia("(max-width: 768px)");
+if (mediaQuery.matches) {
+  console.log("Mobile or tablet device");
+}
+```
+
+#### 3. **On Resize** (to track changes):
+
+```javascript
+window.addEventListener('resize', () => {
+  console.log("Updated width:", window.innerWidth);
+});
+```
+
 
 
 # Azodha
