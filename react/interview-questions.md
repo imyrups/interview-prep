@@ -98,4 +98,73 @@ class useState1 {
 - How do you share state between two remote apps in MFE?
 - 
 
-- 
+
+# Persistent
+## Why do you see the old react project importing react mandatorily
+
+```js
+import React from 'react';
+```
+is due to how **JSX (JavaScript XML)** was compiled **before React 17**.
+
+---
+
+## 🏛️ React Before Version 17 (Pre-2020)
+
+When you wrote JSX like:
+
+```jsx
+const element = <h1>Hello</h1>;
+```
+
+The compiler (Babel, for example) **transpiled** it to:
+
+```js
+const element = React.createElement('h1', null, 'Hello');
+```
+
+This means:
+
+* You **had to import `React`** in any file that used JSX.
+* Otherwise, you'd get a **ReferenceError**: `React is not defined`.
+
+So even if you didn’t explicitly use `React`, you had to import it because JSX depended on `React.createElement`.
+
+---
+
+## 🚀 React 17 and Newer: JSX Transform
+
+Starting in **React 17**, the React team introduced the **"new JSX transform"**, which does **not require `React` to be in scope** anymore.
+
+Now, JSX compiles to something like:
+
+```js
+import { jsx as _jsx } from 'react/jsx-runtime';
+
+const element = _jsx('h1', { children: 'Hello' });
+```
+
+So now, unless you’re directly using `React` (like for `useState`, `useEffect`, etc.), you **don’t need to import it**.
+
+---
+
+## ✅ Summary
+
+| React Version | Required `import React` for JSX? | Why?                                  |
+| ------------- | -------------------------------- | ------------------------------------- |
+| < 17          | ✅ Yes                            | JSX compiled to `React.createElement` |
+| ≥ 17          | ❌ No                             | New JSX transform using `jsx-runtime` |
+
+---
+
+### 🛠️ How to Opt In to the New Transform
+
+Most modern tools like **Create React App**, **Vite**, and **Next.js** use the new JSX transform by default. If you're using Babel directly, you'd need:
+
+```json
+{
+  "presets": [
+    ["@babel/preset-react", { "runtime": "automatic" }]
+  ]
+}
+```
