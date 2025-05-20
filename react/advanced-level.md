@@ -140,6 +140,127 @@ When to use Context API:
 When to use Redux:
     For larger applications with complex state logic, actions, reducers, and middleware (such as for handling async operations like data fetching).
 
+Great follow-up — let’s **open the hood on `useSelector`** and break down exactly *how it selectively triggers re-renders*. This involves how React-Redux subscribes to the Redux store and how `useSelector` internally tracks changes to **avoid unnecessary renders**.
+
+---
+
+## 🧪 Behind the Scenes: How `useSelector` Works
+
+### 🔁 1. Subscribing to the Store
+
+When a component uses `useSelector(selectorFn)`, it:
+
+1. **Subscribes to the Redux store** using `store.subscribe()`.
+2. Registers a **callback** that will run after every Redux state update (i.e., after each dispatched action).
+3. Stores the **previous selected value** internally.
+
+This subscription is *per component*, meaning each component tracks its own `selectorFn`.
+
+---
+
+### 🔍 2. Running the Selector
+
+After any Redux action dispatch:
+
+1. The Redux store notifies all subscribers (components using `useSelector`).
+
+2. Each component’s selector is re-run with the **new store state**.
+
+   ```js
+   const newSelectedValue = selectorFn(store.getState());
+   ```
+
+3. The new value is compared to the **previous value** using:
+
+   * Default strict equality (`===`)
+   * Or a custom comparator (e.g. `shallowEqual`)
+
+---
+
+### 🔄 3. Equality Check (The Core Optimization)
+
+This check determines if a re-render is needed:
+
+```js
+if (!equalityFn(previousValue, newSelectedValue)) {
+  // Values changed -> trigger re-render
+} else {
+  // Values equal -> skip re-render
+}
+```
+
+If the selected value has changed:
+
+* The component is forced to re-render via `useReducer` (more on that below).
+
+If it's the same:
+
+* The render is **skipped entirely**, even though the store updated.
+
+🧠 This is the core reason why `useSelector` is **selective** in its re-renders.
+
+---
+
+### ⚙️ 4. Internal Hook Flow (Simplified)
+
+Here's a conceptual version of what happens inside `useSelector` (simplified):
+
+```js
+function useSelector(selector, equalityFn = ===) {
+  const store = useStore(); // get Redux store from context
+  const [, forceRender] = useReducer(s => s + 1, 0); // dummy state to force re-render
+
+  const latestSelector = useRef(selector);
+  const latestValue = useRef(selector(store.getState()));
+
+  useEffect(() => {
+    const checkForUpdates = () => {
+      const newValue = latestSelector.current(store.getState());
+      if (!equalityFn(latestValue.current, newValue)) {
+        latestValue.current = newValue;
+        forceRender(); // triggers a re-render
+      }
+    };
+
+    const unsubscribe = store.subscribe(checkForUpdates);
+    return unsubscribe;
+  }, [store]);
+
+  return latestValue.current;
+}
+```
+
+This is roughly how React-Redux implements the optimization under the hood.
+
+---
+
+## 🚦 Why This Is Better Than `useContext`
+
+Let’s compare:
+
+* `useContext` causes **all consumers** to re-render if the context value (even a single field) changes.
+* `useSelector` re-runs the selector, compares values, and re-renders **only if needed**.
+
+It’s like comparing:
+
+* **Broadcasting to everyone** (`useContext`)
+* vs. **Listening to a specific change** (`useSelector`)
+
+---
+
+## 🧠 Extra Optimization: `shallowEqual`
+
+If your selector returns an object or array, `useSelector` won’t detect changes unless the **reference changes**.
+
+So you can pass `shallowEqual` like this:
+
+```js
+const user = useSelector(state => state.user, shallowEqual);
+```
+
+This checks if all **keys/values** in the object are the same. This prevents unnecessary re-renders when state objects are structurally the same but new by reference.
+
+---
 
 ## What is Server-Side Rendering (SSR) in React? How does it differ from Client-Side Rendering (CSR)?
 
