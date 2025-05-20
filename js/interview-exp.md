@@ -525,3 +525,24 @@ const findAllPairs = (arr, target) => {
 
 console.log(findAllPairs([1,2,3,4,5,6,7,8,9], 9));
 ```
+
+# Syncron
+
+## Write a program to get the index of max element after rotation
+```js
+function getMaxElementIndexes(a, rotate) {
+    const res = [];
+    let maxIndex = 0;
+    a.forEach((t,i) => {
+        if(t>a[maxIndex]) maxIndex = i
+    });
+    
+    rotate.forEach(r => {
+       const finalRotate = r%a.length;
+       let max = maxIndex - finalRotate;
+       if(max < 0) max = a.length + max;
+       res.push(max); 
+    });  
+    return res;
+}
+```
