@@ -1064,6 +1064,45 @@ Some ways of improving the performance of your React app might include:
     - Use the “Memory” tab in Chrome Devtools to filter for “detached” objects to identify these.
 
 
+## Why does the need of **import React from "react"** gone now?
+
+### 🛑 Why we **used to** do this:
+
+In React **before v17**, **JSX** (e.g., `<div>Hello</div>`) was **not valid JavaScript** on its own. It was transformed (by Babel) into calls like:
+
+```js
+React.createElement('div', null, 'Hello')
+```
+
+So even if you **never used `React` explicitly**, it had to be imported:
+
+```js
+import React from 'react' // Required in React < 17
+```
+
+---
+
+### ✅ What changed in React 17+
+
+#### 🔧 React 17 introduced the **new JSX Transform**:
+
+* You no longer need to manually import `React`.
+* Babel handles JSX differently and **automatically imports the functions needed** (like `jsx`, `jsxs`, `Fragment`) from a special helper module.
+
+#### Now, this:
+
+```jsx
+const App = () => <h1>Hello</h1>
+```
+
+gets compiled to:
+
+```js
+import { jsx as _jsx } from "react/jsx-runtime"
+const App = () => _jsx("h1", { children: "Hello" })
+```
+
+🎉 So **you don’t need `import React from 'react'` anymore** — unless you use APIs like `React.useState` directly.
 
 
 
