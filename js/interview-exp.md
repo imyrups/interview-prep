@@ -546,3 +546,18 @@ function getMaxElementIndexes(a, rotate) {
     return res;
 }
 ```
+
+
+
+# Don't remember company name
+```js
+// create a method which returns a promise =, which resolvbes after time provided in the arg
+
+const resolveIn = (delay) => {
+
+	return new Promise((success, reject) => {
+		setTimeout(() => success(delay), delay);
+	})
+}
+```
+
